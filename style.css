@@ -101,3 +101,5 @@ footer{padding:40px 0 70px;color:var(--muted);font-size:14px;text-align:center}
 .hero.small .hero-in{padding:48px 0 130px}
 .hero.small h1{font-size:clamp(46px,10vw,110px)}
 .backlog .numbers{margin-top:-90px}
+
+.hero.compact .hero-in{padding:72px 0 110px}

@@ -11,11 +11,9 @@
 </head>
 <body>
 
-<header class="hero">
+<header class="hero compact">
   <div class="wrap hero-in">
-    <span class="tag">Builder · Tinkerer · Football volunteer</span>
-    <h1>Things I've<span>Built</span></h1>
-    <p class="sub">Tools for Manningham United FC and a few of my own – all live and ready to use.</p>
+    <h1>Manningham<span>Projects</span></h1>
     <div class="btns">
       <a class="btn btn-primary" href="#live">See what's live</a>
       <a class="btn btn-ghost" href="backlog.html">View the backlog</a>
@@ -24,15 +22,6 @@
 </header>
 
 <main class="wrap">
-  <div class="numbers">
-    <div class="wall">
-      <div class="num feature"><b id="n-all">0</b><span>Sites live</span></div>
-      <div class="num"><b id="n-gh">0</b><span>On GitHub Pages</span></div>
-      <div class="num"><b id="n-run">0</b><span>On Cloud Run</span></div>
-      <div class="num"><b>5</b><span><a href="backlog.html">In the backlog →</a></span></div>
-    </div>
-  </div>
-
   <section id="live">
     <h2>Live now</h2>
     <p class="lede">Every site below is up and running. Click through to use it.</p>
@@ -104,13 +93,6 @@
 <script>
 (function(){
   var cards=[].slice.call(document.querySelectorAll('#grid .card'));
-  function count(p){return cards.filter(function(c){return c.dataset.p===p}).length}
-  function anim(id,to){
-    var el=document.getElementById(id),t0=null;
-    if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.textContent=to;return}
-    (function step(t){t0=t0||t;var k=Math.min((t-t0)/700,1);el.textContent=Math.round(to*k);if(k<1)requestAnimationFrame(step)})(performance.now());
-  }
-  anim('n-all',cards.length);anim('n-gh',count('github'));anim('n-run',count('run'));
   document.querySelectorAll('.chip').forEach(function(b){
     b.addEventListener('click',function(){
       document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
