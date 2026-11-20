@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vince Montuoro – Backlog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="backlog">
+
+<header class="hero small">
+  <div class="wrap hero-in">
+    <span class="tag">Not live yet</span>
+    <h1>The<span>Backlog</span></h1>
+    <p class="sub">Projects that are built, in progress or still just ideas.</p>
+    <nav class="navlinks" aria-label="Pages">
+      <a href="index.html">Live projects</a>
+      <a href="backlog.html" aria-current="page">Backlog</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="numbers">
+    <div class="wall" style="grid-template-columns:repeat(2,1fr)">
+      <div class="num feature"><b>5</b><span>Projects in the backlog</span></div>
+      <div class="num"><b>3</b><span>Private repositories</span></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Up next</h2>
+    <p class="lede">These aren't public yet. Private repositories are listed for reference but can't be opened.</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="badges"><span class="status off">Backlog</span><span class="badge">Firebase</span></div>
+        <h3>MUBFC Club Platform</h3>
+        <p>A club platform for Manningham United, set up on Firebase.</p>
+        <span class="go off">Not live</span>
+      </div>
+
+      <div class="card">
+        <div class="badges"><span class="status off">Backlog</span><span class="badge">Firebase</span></div>
+        <h3>Pricing Page</h3>
+        <p>A pricing page experiment, set up on Firebase.</p>
+        <span class="go off">Not live</span>
+      </div>
+
+      <div class="card">
+        <div class="badges"><span class="status off">Backlog</span><span class="badge">Firebase</span><span class="badge priv">Private</span><span class="badge">Python</span></div>
+        <h3>Agent Harness</h3>
+        <p>Harness for running and orchestrating AI agents.</p>
+        <span class="go off">Private repo</span>
+      </div>
+
+      <div class="card">
+        <div class="badges"><span class="status off">Backlog</span><span class="badge priv">Private</span><span class="badge">TypeScript</span></div>
+        <h3>Social Post Manager</h3>
+        <p>Plan and manage social media posts.</p>
+        <span class="go off">Private repo</span>
+      </div>
+
+      <div class="card">
+        <div class="badges"><span class="status off">Backlog</span><span class="badge priv">Private</span><span class="badge">Python</span></div>
+        <h3>Daily Planner</h3>
+        <p>Helps organise my life.</p>
+        <span class="go off">Private repo</span>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="cta">
+    <div>
+      <h2>Back to what works</h2>
+      <p>Everything that's finished and live is on the main page.</p>
+    </div>
+    <a class="btn btn-primary" href="index.html">See live projects</a>
+  </div>
+</main>
+
+<footer>© <span id="yr"></span> Vince Montuoro · <a href="https://github.com/vmontuoro">GitHub</a></footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

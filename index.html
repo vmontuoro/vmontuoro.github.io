@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vince Montuoro – Live Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <span class="tag">Builder · Tinkerer · Football volunteer</span>
+    <h1>Things I've<span>Built</span></h1>
+    <p class="sub">Tools for Manningham United FC and a few of my own – all live and ready to use.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="#live">See what's live</a>
+      <a class="btn btn-ghost" href="backlog.html">View the backlog</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="numbers">
+    <div class="wall">
+      <div class="num feature"><b id="n-all">0</b><span>Sites live</span></div>
+      <div class="num"><b id="n-gh">0</b><span>On GitHub Pages</span></div>
+      <div class="num"><b id="n-run">0</b><span>On Cloud Run</span></div>
+      <div class="num"><b>5</b><span><a href="backlog.html">In the backlog →</a></span></div>
+    </div>
+  </div>
+
+  <section id="live">
+    <h2>Live now</h2>
+    <p class="lede">Every site below is up and running. Click through to use it.</p>
+
+    <div class="chips" role="group" aria-label="Filter sites">
+      <button class="chip" aria-pressed="true" data-f="all">All</button>
+      <button class="chip" aria-pressed="false" data-f="github">GitHub Pages</button>
+      <button class="chip" aria-pressed="false" data-f="run">Cloud Run</button>
+    </div>
+
+    <div class="grid" id="grid">
+
+      <a class="card" data-p="github" href="https://vmontuoro.github.io/MUFC/">
+        <div class="badges"><span class="status">Live</span><span class="badge">GitHub Pages</span></div>
+        <h3>Weekend Grounds Allocation</h3>
+        <p>Who plays where, and when, across the club's grounds each weekend.</p>
+        <span class="go">Open site →</span>
+      </a>
+
+      <a class="card" data-p="run" href="https://mufc-uniforms-lmrwkbd5nq-ts.a.run.app/">
+        <div class="badges"><span class="status">Live</span><span class="badge">Cloud Run</span></div>
+        <h3>Uniform Coordinator</h3>
+        <p>Order and manage club uniforms for teams and families.</p>
+        <span class="go">Open site →</span>
+      </a>
+
+      <a class="card" data-p="run" href="https://mufc-volunteer-finder-802820206720.australia-southeast1.run.app/">
+        <div class="badges"><span class="status">Live</span><span class="badge">Cloud Run</span></div>
+        <h3>Volunteer Finder</h3>
+        <p>Families pick volunteer jobs and sign up – no login needed.</p>
+        <span class="go">Open site →</span>
+      </a>
+
+      <a class="card" data-p="github" href="https://vmontuoro.github.io/sponsors_mufc/">
+        <div class="badges"><span class="status">Live</span><span class="badge">GitHub Pages</span></div>
+        <h3>Sponsorship Site</h3>
+        <p>Partner with Manningham United FC – club stats, reach and sponsorship packages.</p>
+        <span class="go">Open site →</span>
+      </a>
+
+      <a class="card" data-p="github" href="https://vmontuoro.github.io/sponsors_mufc/wizard/">
+        <div class="badges"><span class="status">Live</span><span class="badge">GitHub Pages</span></div>
+        <h3>Sponsor Wizard</h3>
+        <p>"What sort of sponsor are you?" – a quick guide to the right package.</p>
+        <span class="go">Open site →</span>
+      </a>
+
+      <a class="card" data-p="run" href="https://cowork-feed-802820206720.australia-southeast1.run.app/feed/e5607e0dff983b284af6906efc9f6887549de5f12e9ede14.xml">
+        <div class="badges"><span class="status">Live</span><span class="badge">Cloud Run</span><span class="badge">RSS</span></div>
+        <h3>RSS Feed</h3>
+        <p>My personal feed, served from Cloud Run. Add the link to any RSS reader.</p>
+        <span class="go">Open feed →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="cta">
+    <div>
+      <h2>Still cooking</h2>
+      <p>More projects are on the way. See what's in the pipeline.</p>
+    </div>
+    <a class="btn btn-primary" href="backlog.html">Open the backlog</a>
+  </div>
+</main>
+
+<footer>© <span id="yr"></span> Vince Montuoro · <a href="https://github.com/vmontuoro">GitHub</a></footer>
+
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('#grid .card'));
+  function count(p){return cards.filter(function(c){return c.dataset.p===p}).length}
+  function anim(id,to){
+    var el=document.getElementById(id),t0=null;
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.textContent=to;return}
+    (function step(t){t0=t0||t;var k=Math.min((t-t0)/700,1);el.textContent=Math.round(to*k);if(k<1)requestAnimationFrame(step)})(performance.now());
+  }
+  anim('n-all',cards.length);anim('n-gh',count('github'));anim('n-run',count('run'));
+  document.querySelectorAll('.chip').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+      cards.forEach(function(c){c.hidden=b.dataset.f!=='all'&&c.dataset.p!==b.dataset.f});
+    });
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
