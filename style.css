@@ -103,3 +103,7 @@ footer{padding:40px 0 70px;color:var(--muted);font-size:14px;text-align:center}
 .backlog .numbers{margin-top:-90px}
 
 .hero.compact .hero-in{padding:72px 0 110px}
+.status.closed::before{background:#E5484D;box-shadow:0 0 0 3px rgba(229,72,77,.25)}
+.status.closed{color:#C62F35}
+:root[data-theme="dark"] .status.closed{color:#FF8A8E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .status.closed{color:#FF8A8E}}
